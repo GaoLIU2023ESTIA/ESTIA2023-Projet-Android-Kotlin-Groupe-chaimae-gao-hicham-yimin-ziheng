@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id("com.google.dagger.hilt.android")
+    id("kotlinx-serialization")
+    id('kotlin-parcelize')
+}
+
+android {
+    namespace 'com.task.actionlist'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.task.actionlist"
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //dataBinding
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+    /*KTX*/
+    implementation "androidx.fragment:fragment-ktx:1.5.4"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.5.1"
+
+    /*Test*/
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    /*Room*/
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt("androidx.room:room-compiler:$room_version")
+    /*Hilt*/
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    /*retrofit*/
+    implementation("com.squareup.retrofit2:retrofit:$retrofit2_version")//retrofit
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")//okhttp_logging
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // 必要依赖，解析json字符
+    /**/
+    implementation 'com.kunminx.arch:mvi-dispatch-ktx:7.0.2-beta'
+    implementation 'com.github.KunMinX.Strict-DataBinding:strict_databinding:5.6.0'
+    implementation 'com.github.KunMinX.Strict-DataBinding:binding_state:5.6.0'
+    implementation 'com.github.KunMinX.Strict-DataBinding:binding_recyclerview:5.6.0'
+    implementation 'com.kunminx.arch:smooth-navigation:4.0.0-beta1'
+    implementation('com.blankj:utilcodex:1.31.0')
+    implementation 'com.tencent:mmkv-static:1.2.13'
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-radar:2.0.5'       //雷达刷新头
+}

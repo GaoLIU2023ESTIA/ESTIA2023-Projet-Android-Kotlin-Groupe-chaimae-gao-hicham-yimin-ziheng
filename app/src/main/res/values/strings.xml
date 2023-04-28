@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ActionList</string>
+
+    <string name="title">Task</string>
+    <string name="content">Content</string>
+    <string name="assignee">Assignee</string>
+    <string name="requested_by">Requested by</string>
+    <string name="edit">Edit</string>
+    <string name="new_note">Add a task</string>
+    <string name="saved">Saved</string>
+    <string name="top">Top</string>
+    <string name="last_time_modify">Last edited on</string>
+    <string name="please_complete">Please complete</string>
+    <string name="permissions_on_denied">Refusal will result in the functionality not working properly</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connect">Connect</string>
+</resources>
